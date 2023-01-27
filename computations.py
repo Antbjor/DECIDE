@@ -51,7 +51,10 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_5(self):
-        return True
+        for i in range(self.num_points-1):
+            if self.x[i] > self.x[i+1]:
+                return True
+        return False
 
     def condition_6(self):
         return True
