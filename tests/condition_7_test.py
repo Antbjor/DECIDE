@@ -2,7 +2,7 @@ import unittest
 import computations
 
 
-class TestCondition7(unittest.TestCase):
+class TestCondition7(unittest.TestCase):  # Test class for condition 7
 
     x = [1, 0, -1, 0, 1, 0, -1, 0, 1, 0, -1]
     y = [0, -1, 0, 1, 0, -1, 0, 1, 0, -1, 0]
