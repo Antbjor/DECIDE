@@ -60,7 +60,20 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_7(self):
-        return True
+        k_pts = self.parameters["K_PTS"]
+        # special cases
+        if self.num_points < 3:
+            return False
+        if k_pts > self.num_points - 2:
+            return False
+        # regular cases
+        for i in range(self.num_points - k_pts - 1):
+            j = i + k_pts + 1
+            length = math.sqrt(math.pow(self.x[i] - self.x[j], 2) +
+                               math.pow(self.y[i] - self.y[j], 2))
+            if length > self.parameters["LENGTH1"]:
+                return True
+        return False
 
     def condition_8(self):
         return True
