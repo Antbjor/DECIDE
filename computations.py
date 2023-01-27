@@ -23,7 +23,17 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_3(self):
-        return True
+        # special cases
+        if self.num_points == 2:
+            return False
+        # regular cases
+        for i in range(self.num_points - 2):
+            area = abs(self.x[i] * (self.y[i + 1] - self.y[i + 2])
+                       + self.x[i + 1] * (self.y[i + 2] - self.y[i])
+                       + self.x[i + 2] * (self.y[i] - self.y[i + 1])) / 2
+            if area > self.parameters["AREA1"]:
+                return True
+        return False
 
     def condition_4(self):
         return True
