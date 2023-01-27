@@ -16,7 +16,6 @@ class LaunchInterceptorConditions:
     def condition_0(self):
         return True
 
-    
     def condition_1(self):
         """
         Return true if three consecutive data points cannot be contained on a circle with radius RADIUS1
@@ -85,7 +84,17 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_11(self):
-        return True
+        g_pts = self.parameters["G_PTS"]
+        # special cases
+        if self.num_points < 3:
+            return False
+        if g_pts > self.num_points - 2:
+            return False
+        # regular cases
+        for i in range(self.num_points - g_pts - 1):
+            if self.x[i] > self.x[i + g_pts + 1]:
+                return True
+        return False
 
     def condition_12(self):
         return True
