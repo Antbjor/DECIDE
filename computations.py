@@ -78,7 +78,35 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_9(self):
-        return True
+        """
+        Return true if there exist one or more sets of three data points separated by C_PTS and D_PTS
+        consecutive intervening points that form an angle under certain conditions
+        """
+        c_pts = self.parameters["C_PTS"]
+        d_pts = self.parameters["D_PTS"]
+        epsilon = self.parameters["EPSILON"]
+
+        # Special case
+        if self.num_points < 5:
+            return False
+        # Regular case
+        for i in range(self.num_points-(c_pts+d_pts+2)):
+            first_point = np.array([self.x[i], self.y[i]])
+            vertex_point = np.array([self.x[i+c_pts+1], self.y[i+c_pts+1]])
+            last_point = np.array([self.x[i+c_pts+d_pts+2], self.y[i+c_pts+d_pts+2]])
+            
+            # Special case, points coincide with the vertex
+            if (np.array_equal(first_point,vertex_point)) or (np.array_equal(last_point,vertex_point)):
+                continue
+
+            ba = first_point - vertex_point
+            bc = last_point - vertex_point
+            cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))
+            angle = np.arccos(cosine_angle) 
+
+            if (angle < (math.pi-epsilon)) or (angle > (math.pi+epsilon)):
+                return True
+        return False
 
     def condition_10(self):
         return True
