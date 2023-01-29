@@ -33,12 +33,12 @@ class TestCondition1(unittest.TestCase):
                                                        num_points=3,
                                                        x=self.x[10:], y=self.y[10:])
         self.assertTrue(lic.condition_1())
-
+    
     def test_zero_radius(self):
         lic = computations.LaunchInterceptorConditions(parameters={"RADIUS1": 0.0},
                                                        num_points=len(self.x),
                                                        x=self.x, y=self.y)
         self.assertTrue(lic.condition_1())
-
-if __name__ == '__main__':
+    
+if __name__ == '__main__':  
     unittest.main()
