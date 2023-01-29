@@ -129,7 +129,43 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_13(self):
-        return True
+        """
+        Return true if there 
+        1. exist one or more sets of three data points separated by A_PTS and B_PTS
+        consecutive intervening points that cannot be contained within a circle of radius1
+        2. exist one or more sets of three data points separated by A_PTS and B_PTS
+        consecutive intervening points that can be contained within a circle of radius2
+        """
+        a_pts = self.parameters["A_PTS"]
+        b_pts = self.parameters["B_PTS"]
+        radius1 = self.parameters["RADIUS1"]
+        radius2 = self.parameters["RADIUS2"]
+        radius1_circle = True
+        radius2_circle = False
+
+        # special cases
+        if self.num_points < 5:
+            return False
+        
+        # regular cases
+        for i in range(self.num_points-(a_pts+b_pts+2)):
+            center = [(self.x[i]+self.x[i+a_pts+1]+self.x[i+a_pts+b_pts+2])/3, (self.y[i]+self.y[i+a_pts+1]+self.y[i+a_pts+b_pts+2])/3]
+            dist_1 = math.dist([self.x[i], self.y[i]], center)
+            dist_2 = math.dist([self.x[i+a_pts+1], self.y[i+a_pts+1]], center)
+            dist_3 = math.dist([self.x[i+a_pts+b_pts+2], self.y[i+a_pts+b_pts+2]], center)
+    
+            # Three data points that cannot be contained within circle with radius1
+            if dist_1>radius1 or dist_2>radius1 or dist_3>radius1:
+                radius1_circle = False
+
+            # Three data points that can be contained within circle with radius2
+            if dist_1<=radius2 and dist_2<=radius2 and dist_3<=radius2:
+                radius2_circle = True
+
+        if not(radius1_circle) and radius2_circle:
+            return True
+
+        return False
 
     def condition_14(self):
         return True
