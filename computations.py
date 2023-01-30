@@ -14,7 +14,13 @@ class LaunchInterceptorConditions:
         self.parameters = parameters
 
     def condition_0(self):
-        return True
+        """
+        Return true if two consecutive data points are further apart than LENGTH1
+        """
+        for i in range(self.num_points - 1):
+            if math.dist([self.x[i], self.y[i]], [self.x[i+1], self.y[i+1]]) > self.parameters["LENGTH1"]:
+                return True
+        return False
 
     def condition_1(self):
         """
