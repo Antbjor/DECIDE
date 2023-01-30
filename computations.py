@@ -21,13 +21,13 @@ class LaunchInterceptorConditions:
         Return true if three consecutive data points cannot be contained on a circle with radius RADIUS1
         """
         radius = self.parameters["RADIUS1"]
-        for i in range(self.num_points-2):
-            
-            center = [(self.x[i]+self.x[i+1]+self.x[i+2])/3, (self.y[i]+self.y[i+1]+self.y[i+2])/3]
+        for i in range(self.num_points - 2):
+
+            center = [(self.x[i] + self.x[i + 1] + self.x[i + 2]) / 3, (self.y[i] + self.y[i + 1] + self.y[i + 2]) / 3]
             dist_1 = math.dist([self.x[i], self.y[i]], center)
-            dist_2 = math.dist([self.x[i+1], self.y[i+1]], center)
-            dist_3 = math.dist([self.x[i+2], self.y[i+2]], center)
-            if dist_1>radius or dist_2>radius or dist_3>radius:
+            dist_2 = math.dist([self.x[i + 1], self.y[i + 1]], center)
+            dist_3 = math.dist([self.x[i + 2], self.y[i + 2]], center)
+            if dist_1 > radius or dist_2 > radius or dist_3 > radius:
                 return True
         return False
 
@@ -80,13 +80,45 @@ class LaunchInterceptorConditions:
         return True
 
     def condition_5(self):
-        for i in range(self.num_points-1):
-            if self.x[i] > self.x[i+1]:
+        for i in range(self.num_points - 1):
+            if self.x[i] > self.x[i + 1]:
                 return True
         return False
 
     def condition_6(self):
-        return True
+        num_consecutive = self.parameters["N_PTS"]
+        min_dist = self.parameters["DIST"]
+
+        # The condition is not met when NUMPOINTS <3.
+        if self.num_points < 3:
+            return False
+
+        for i in range(self.num_points - 2):
+            p = np.array([self.x[i], self.y[i]])
+            # if this condition is met we are at the last point in the consecutive search
+            if i + num_consecutive > self.num_points:
+                return False
+            q = np.array([self.x[i + num_consecutive - 1], self.y[i + num_consecutive - 1]])
+
+            # special case when the first and the last of the consecutive points coincide.
+            if p.all() == q.all():
+                for j in range(1, num_consecutive - 2):
+                    r = np.array([self.x[i + j], self.y[i + j]])
+                    # Distance between the two coinciding points and the point r in between them
+                    dist = np.linalg.norm(p - r)
+                    if dist > min_dist:
+                        return True
+
+            for k in range(1, num_consecutive - 2):
+                r = np.array([self.x[i + k], self.y[i + k]])
+                # Avoid dividing by zero
+                if np.linalg.norm(q - p) == 0:
+                    return False
+                dist = np.cross(q - p, r - p) / np.linalg.norm(q - p)
+                if dist > min_dist:
+                    return True
+
+        return False
 
     def condition_7(self):
         k_pts = self.parameters["K_PTS"]
@@ -120,21 +152,21 @@ class LaunchInterceptorConditions:
         if self.num_points < 5:
             return False
         # Regular case
-        for i in range(self.num_points-(c_pts+d_pts+2)):
+        for i in range(self.num_points - (c_pts + d_pts + 2)):
             first_point = np.array([self.x[i], self.y[i]])
-            vertex_point = np.array([self.x[i+c_pts+1], self.y[i+c_pts+1]])
-            last_point = np.array([self.x[i+c_pts+d_pts+2], self.y[i+c_pts+d_pts+2]])
-            
+            vertex_point = np.array([self.x[i + c_pts + 1], self.y[i + c_pts + 1]])
+            last_point = np.array([self.x[i + c_pts + d_pts + 2], self.y[i + c_pts + d_pts + 2]])
+
             # Special case, points coincide with the vertex
-            if (np.array_equal(first_point,vertex_point)) or (np.array_equal(last_point,vertex_point)):
+            if (np.array_equal(first_point, vertex_point)) or (np.array_equal(last_point, vertex_point)):
                 continue
 
             ba = first_point - vertex_point
             bc = last_point - vertex_point
             cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))
-            angle = np.arccos(cosine_angle) 
+            angle = np.arccos(cosine_angle)
 
-            if (angle < (math.pi-epsilon)) or (angle > (math.pi+epsilon)):
+            if (angle < (math.pi - epsilon)) or (angle > (math.pi + epsilon)):
                 return True
         return False
 
@@ -175,23 +207,24 @@ class LaunchInterceptorConditions:
         # special cases
         if self.num_points < 5:
             return False
-        
+
         # regular cases
-        for i in range(self.num_points-(a_pts+b_pts+2)):
-            center = [(self.x[i]+self.x[i+a_pts+1]+self.x[i+a_pts+b_pts+2])/3, (self.y[i]+self.y[i+a_pts+1]+self.y[i+a_pts+b_pts+2])/3]
+        for i in range(self.num_points - (a_pts + b_pts + 2)):
+            center = [(self.x[i] + self.x[i + a_pts + 1] + self.x[i + a_pts + b_pts + 2]) / 3,
+                      (self.y[i] + self.y[i + a_pts + 1] + self.y[i + a_pts + b_pts + 2]) / 3]
             dist_1 = math.dist([self.x[i], self.y[i]], center)
-            dist_2 = math.dist([self.x[i+a_pts+1], self.y[i+a_pts+1]], center)
-            dist_3 = math.dist([self.x[i+a_pts+b_pts+2], self.y[i+a_pts+b_pts+2]], center)
-    
+            dist_2 = math.dist([self.x[i + a_pts + 1], self.y[i + a_pts + 1]], center)
+            dist_3 = math.dist([self.x[i + a_pts + b_pts + 2], self.y[i + a_pts + b_pts + 2]], center)
+
             # Three data points that cannot be contained within circle with radius1
-            if dist_1>radius1 or dist_2>radius1 or dist_3>radius1:
+            if dist_1 > radius1 or dist_2 > radius1 or dist_3 > radius1:
                 radius1_circle = False
 
             # Three data points that can be contained within circle with radius2
-            if dist_1<=radius2 and dist_2<=radius2 and dist_3<=radius2:
+            if dist_1 <= radius2 and dist_2 <= radius2 and dist_3 <= radius2:
                 radius2_circle = True
 
-        if not(radius1_circle) and radius2_circle:
+        if not (radius1_circle) and radius2_circle:
             return True
 
         return False
