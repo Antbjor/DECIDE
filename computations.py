@@ -32,7 +32,36 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_2(self):
-        return True
+        pi = config.PI
+        epsilon = self.parameters["EPSILON"]
+        if epsilon > pi or epsilon < 0:
+            raise TypeError("Epsilon must fulfill 0 < Epsilon < pi")
+
+        # special case
+        if self.num_points == 2:
+            return False
+        for i in range(self.num_points - 2):
+            # three consecutive datapoints p, q, r. q is the vertex.
+            p = (self.x[i], self.y[i])
+            q = (self.x[i + 1], self.y[i + 1])
+            r = (self.x[i + 2], self.y[i + 2])
+
+            # if a or c coincides with the vertex, the angle is undefined
+            if p == q or q == r:
+                continue
+            # given two vectors a and b, the angle theta between them can be found with
+            # theta = arc-cos( (a ⋅ b) / (|a|⋅|b|))
+            vector_a = ([q[0] - p[0], q[1] - p[1]])
+            vector_a_norm = vector_a / np.linalg.norm(vector_a)
+            vector_b = [q[0] - r[0], q[1] - r[1]]
+            vector_b_norm = vector_b / np.linalg.norm(vector_b)
+            dot_product = np.dot(vector_a_norm, vector_b_norm)
+            angle = np.arccos(dot_product)
+
+            if angle < pi - epsilon or angle > pi + epsilon:
+                return True
+
+            return False
 
     def condition_3(self):
         # special cases
@@ -170,6 +199,6 @@ class LaunchInterceptorConditions:
     def condition_14(self):
         return True
 
-    function_list = [condition_0,  condition_1,  condition_2,  condition_3,  condition_4,
-                     condition_5,  condition_6,  condition_7,  condition_8,  condition_9,
+    function_list = [condition_0, condition_1, condition_2, condition_3, condition_4,
+                     condition_5, condition_6, condition_7, condition_8, condition_9,
                      condition_10, condition_11, condition_12, condition_13, condition_14]
