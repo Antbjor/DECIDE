@@ -18,7 +18,7 @@ class LaunchInterceptorConditions:
         Return true if two consecutive data points are further apart than LENGTH1
         """
         for i in range(self.num_points - 1):
-            if math.dist([self.x[i], self.y[i]], [self.x[i+1], self.y[i+1]]) > self.parameters["LENGTH1"]:
+            if math.dist([self.x[i], self.y[i]], [self.x[i + 1], self.y[i + 1]]) > self.parameters["LENGTH1"]:
                 return True
         return False
 
@@ -196,7 +196,7 @@ class LaunchInterceptorConditions:
             b = (self.x[i + e_pts + 1], self.y[i + e_pts + 1])
             c = (self.x[i + e_pts + f_pts + 2], self.y[i + e_pts + f_pts + 2])
 
-            # Coordinates does not form a triangle, no computations needed
+            # Coordinates do not form a triangle, no computations needed
             if a == b or a == c or b == c:
                 continue
 
@@ -257,7 +257,7 @@ class LaunchInterceptorConditions:
             if dist_1 <= radius2 and dist_2 <= radius2 and dist_3 <= radius2:
                 radius2_circle = True
 
-        if not (radius1_circle) and radius2_circle:
+        if not radius1_circle and radius2_circle:
             return True
 
         return False
@@ -288,7 +288,7 @@ class LaunchInterceptorConditions:
             b = (self.x[i + e_pts + 1], self.y[i + e_pts + 1])
             c = (self.x[i + e_pts + f_pts + 2], self.y[i + e_pts + f_pts + 2])
 
-            # Coordinates does not form a triangle, no computations needed
+            # Coordinates do not form a triangle, no computations needed
             if a == b or a == c or b == c:
                 continue
 
@@ -301,8 +301,6 @@ class LaunchInterceptorConditions:
                 return True
 
         return False
-
-
 
     function_list = [condition_0, condition_1, condition_2, condition_3, condition_4,
                      condition_5, condition_6, condition_7, condition_8, condition_9,

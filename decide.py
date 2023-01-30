@@ -9,7 +9,7 @@ def cmv_calculator(parameters, num_points, x, y):
 
     # Iterate through all condition judgement functions in LICs.
     for function, i in zip(lic.function_list, range(15)):
-        config.cmv[i] = function()
+        config.cmv[i] = function(lic)
 
 
 def pum_calculator(cmv, lcm):
