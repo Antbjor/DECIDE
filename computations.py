@@ -257,7 +257,46 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_14(self):
-        return True
+        """
+        There exists at least one set of three data points, separated by exactly E PTS and F PTS con-
+        secutive intervening points, respectively, that are the vertices of a triangle with area greater
+        than AREA1. In addition, there exist three data points (which can be the same or different
+        from the three data points just mentioned) separated by exactly E PTS and F PTS consec-
+        utive intervening points, respectively, that are the vertices of a triangle with area less than
+        AREA2. Both parts must be true for the LIC to be true. The condition is not met when
+        NUMPOINTS <5.
+        """
+        e_pts = self.parameters["E_PTS"]
+        f_pts = self.parameters["F_PTS"]
+        area_1 = self.parameters["AREA_1"]
+        area_2 = self.parameters["AREA_2"]
+        cond1 = False
+        cond2 = False
+
+        # special cases
+        if self.num_points < 5:
+            return False
+
+        for i in range(self.num_points - (e_pts + f_pts + 2)):
+            a = (self.x[i], self.y[i])
+            b = (self.x[i + e_pts + 1], self.y[i + e_pts + 1])
+            c = (self.x[i + e_pts + f_pts + 2], self.y[i + e_pts + f_pts + 2])
+
+            # Coordinates does not form a triangle, no computations needed
+            if a == b or a == c or b == c:
+                continue
+
+            area = 0.5 * (a[0] * (b[1] - c[1]) + b[0] * (c[1] - a[1]) + c[0] * (a[1] - b[1]))
+            if area > area_1:
+                cond1 = True
+            if area < area_2:
+                cond2 = True
+            if cond1 and cond2:
+                return True
+
+        return False
+
+
 
     function_list = [condition_0, condition_1, condition_2, condition_3, condition_4,
                      condition_5, condition_6, condition_7, condition_8, condition_9,
