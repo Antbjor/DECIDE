@@ -83,7 +83,36 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_4(self):
-        return True
+        """
+        Return true if Q_PTS consecutive data points lie in more than QUADS quadrants
+        """
+        q_pts = self.parameters["Q_PTS"]
+        quads = self.parameters["QUADS"]
+        if 2 > q_pts or q_pts > self.num_points:
+            raise ValueError("Q_PTS does not satisfy 2 <= Q_PTS <= NUMPOINTS")
+        if 1 > quads or quads > 3:
+            raise ValueError("QUADS does not satisfy 1 <= QUADS <= 3")
+
+        for i in range(self.num_points - q_pts + 1):
+            point_in_quadrant = [False, False, False, False]
+            for j in range(q_pts):
+                x = self.x[i + j]
+                y = self.y[i + j]
+                # point_in_quadrant[index] tells whether there is a point in quadrant index + 1
+                if y >= 0:
+                    if x >= 0:
+                        point_in_quadrant[0] = True
+                    else:
+                        point_in_quadrant[1] = True
+                else:
+                    if x <= 0:
+                        point_in_quadrant[2] = True
+                    else:
+                        point_in_quadrant[3] = True
+            if point_in_quadrant.count(True) >= quads:
+                return True
+        return False
+
 
     def condition_5(self):
         for i in range(self.num_points - 1):
