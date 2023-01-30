@@ -171,7 +171,34 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_10(self):
-        return True
+        """
+        There exists at least one set of three data points separated by exactly E PTS and F PTS
+        consecutive intervening points, respectively, that are the vertices of a triangle with area
+        greater than AREA1. The condition is not met when NUMPOINTS <5
+        """
+
+        e_pts = self.parameters["E_PTS"]
+        f_pts = self.parameters["F_PTS"]
+        area_1 = self.parameters["AREA_1"]
+
+        # special cases
+        if self.num_points < 5:
+            return False
+
+        for i in range(self.num_points - (e_pts + f_pts + 2)):
+            a = (self.x[i], self.y[i])
+            b = (self.x[i + e_pts + 1], self.y[i + e_pts + 1])
+            c = (self.x[i + e_pts + f_pts + 2], self.y[i + e_pts + f_pts + 2])
+
+            # Coordinates does not form a triangle, no computations needed
+            if a == b or a == c or b == c:
+                continue
+
+            area = 0.5 * (a[0] * (b[1] - c[1]) + b[0] * (c[1] - a[1]) + c[0] * (a[1] - b[1]))
+            if area > area_1:
+                return True
+
+        return False
 
     def condition_11(self):
         g_pts = self.parameters["G_PTS"]
