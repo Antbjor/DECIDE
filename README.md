@@ -2,6 +2,12 @@
 ## Assignment 1: DECIDE
 *The first assignment in the project-course DD2480 at KTH.*
 
+## Running
+Requirements:
+* Python >= `3.8`
+* numpy >= `1.16.4`
+* PyYAML >= `5.1.1`
+
 #### Problem
 What is done in particular is to create a program that will decide if a interceptor should be launched, based upon input radar tracking information.
 
