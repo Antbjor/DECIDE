@@ -26,3 +26,8 @@ the tools and practices.
 
 #### License
 The project is available under the MIT license. See the COPYING file for more info.
+
+
+#### Document how you fulfill P+ critieria
+We have read the criterias for getting a pass, and fulfilled every one of them.
+We are using appropriate file-names and using folders to divide the code-sections. We are using test-cases for our implementations to assure that the program is functionally correct. There is atleast one unit-test per LIC and atleast two tests which include a positive test and a negative test with invalid inputs. We are using clear commit-tags such as FIX, FEAT and DOC. Every commit contains the added feature/functionality together with corresponding testcases. The work is divide between the group members so everyone almost has the same amount of commits. We have documented our way of working. We had a good structure and planning in the beginning of the project which made us decide to create almost all of our issues, and relate them to specific features/functionality. This made us be able to fulfill the P+ criteria which is that Most of our commits are linked to an issue describing the feature / commit.
