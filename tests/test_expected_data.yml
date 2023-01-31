@@ -1,0 +1,65 @@
+# Expected output from the decide/decision.cmv_calculator function when tested in tests/main_test.py
+EXPECTED_CMV: [
+               [True, True, False, False, True, True, True, True, True, False, False, True, True, False, False],
+               [True, True, False, True, True, True, True, True, True, True, True, True, True, True, True],
+               [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+              ]
+
+# Expected output from the decide/decision.pum_calculator function when tested in tests/main_test.py
+EXPECTED_PUM: [
+               [[False, True, False, False, True, True, True, True, True, False, False, True, True, False, False], 
+               [True, False, False, False, True, True, True, True, True, False, False, True, True, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False], 
+               [True, True, False, False, False, True, True, True, True, False, False, True, True, False, False], 
+               [True, True, False, False, True, False, True, True, True, False, False, True, True, False, False], 
+               [True, True, False, False, True, True, False, True, True, False, False, True, True, False, False], 
+               [True, True, False, False, True, True, True, False, True, False, False, True, True, False, False], 
+               [True, True, False, False, True, True, True, True, False, False, False, True, True, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False], 
+               [True, True, False, False, True, True, True, True, True, False, False, False, True, False, False], 
+               [True, True, False, False, True, True, True, True, True, False, False, True, False, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False], 
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]],
+               [[False, True, True, True, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, False, True, True, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, False, False, True, False, False, False, False, False, False, False, False, True, False], 
+               [True, True, False, False, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, True, True, False, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, False, True, True, False, True, True, True, True, True, True, True, True, True], 
+               [True, True, False, True, True, True, False, True, True, True, True, True, True, True, True], 
+               [True, True, False, True, True, True, True, False, True, True, True, True, True, True, True], 
+               [True, True, False, True, True, True, True, True, False, True, True, True, True, True, True], 
+               [True, True, False, True, True, True, True, True, True, False, True, True, True, True, True],
+               [True, True, False, True, True, True, True, True, True, True, False, True, True, True, True], 
+               [True, True, False, True, True, True, True, True, True, True, True, False, True, True, True], 
+               [True, True, False, True, True, True, True, True, True, True, True, True, False, True, True], 
+               [True, True, True, True, True, True, True, True, True, True, True, True, True, False, True], 
+               [True, True, False, True, True, True, True, True, True, True, True, True, True, True, False]],
+               [[False, True, True, True, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, False, True, True, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, False, True, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, True, False, True, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, True, True, False, True, True, True, True, True, True, True, True, True, True], 
+               [True, True, True, True, True, False, True, True, True, True, True, True, True, True, True], 
+               [True, True, True, True, True, True, False, True, True, True, True, True, True, True, True], 
+               [True, True, True, True, True, True, True, False, True, True, True, True, True, True, True], 
+               [True, True, True, True, True, True, True, True, False, True, True, True, True, True, True], 
+               [True, True, True, True, True, True, True, True, True, False, True, True, True, True, True], 
+               [True, True, True, True, True, True, True, True, True, True, False, True, True, True, True], 
+               [True, True, True, True, True, True, True, True, True, True, True, False, True, True, True], 
+               [True, True, True, True, True, True, True, True, True, True, True, True, False, True, True], 
+               [True, True, True, True, True, True, True, True, True, True, True, True, True, False, True], 
+               [True, True, True, True, True, True, True, True, True, True, True, True, True, True, False]]
+              ]
+
+# Expected output from the decide/decision.fuv_calculator function when tested in tests/main_test.py
+EXPECTED_FUV: [
+               [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False],
+               [True, True, False, False, True, False, False, False, False, False, False, False, False, True, False],
+               [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+              ]
+              
+# Expected output from the decide/decision.decide function when tested in tests/main_test.py
+EXPECTED_LAUNCH_RESULT: [False, False, True] 
