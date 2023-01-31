@@ -10,12 +10,24 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
     y_p = [0, -1, 0, 1, 0, -1, 0, 11, 0, -1, 0, 1, 0, -1, 0]
 
     def test_lower_bound(self):
+        """
+        test_lower_bound tests if two points can be seperated by K_PTS consecutive points
+
+        expected_outcome: False
+        """
         lic = computations.LaunchInterceptorConditions(parameters={"LENGTH1": 0.0, "K_PTS": 1},
                                                        num_points=2,
                                                        x=self.x, y=self.y)
         self.assertFalse(lic.condition_7())
 
     def test_upper_bound(self):
+        """
+        test_upper_bound tests if 100 points will exceed the limit of function
+        condition_7()
+
+        expected_outcome_1: False
+        expected_outcome_2: True
+        """
         ones, zeros = [1.0 for _ in range(100)], [0.0 for _ in range(100)]
         lic = computations.LaunchInterceptorConditions(parameters={"LENGTH1": 0.0, "K_PTS": 98},
                                                        num_points=100,
@@ -27,13 +39,27 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
         ones[99], zeros[99] = 0.0, 1.0
         self.assertEqual(lic.condition_7(), True)
 
-    def test_oscillation(self):  # Test for the oscillating points.
+    def test_oscillation(self):
+        """
+        test_lower_bound tests if the oscillating points will meet the requirement that the
+        distance of two K_PTS consecutive points is longer than LENGTH1 given small K_PTS
+
+        expected_outcome: False
+        """
         lic = computations.LaunchInterceptorConditions(parameters={"LENGTH1": 0.0, "K_PTS": 3},
                                                        num_points=11,
                                                        x=self.x, y=self.y)
         self.assertFalse(lic.condition_7())
 
-    def test_impulse(self):  # Test for the pulse points for different K_PTS.
+    def test_impulse(self):
+        """
+        test_lower_bound tests if the pulse points will meet the requirement that the distance
+        of two K_PTS consecutive points is longer than LENGTH1 given different K_PTS
+
+        expected_outcome_1: False
+        expected_outcome_2: True
+        expected_outcome_3: True
+        """
         lic = computations.LaunchInterceptorConditions(parameters={"LENGTH1": 6.6, "K_PTS": 7},
                                                        num_points=15,
                                                        x=self.x_p, y=self.y_p)
@@ -48,6 +74,15 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
         self.assertTrue(lic.condition_7())
 
     def test_simple_calculation(self):
+        """
+        test_lower_bound tests if the different point sets will meet the requirement that the
+        distance of two K_PTS consecutive points is longer than LENGTH1 given different K_PTS
+
+        expected_outcome_1: True
+        expected_outcome_2: False
+        expected_outcome_3: False
+        expected_outcome_4: True
+        """
         lic = computations.LaunchInterceptorConditions(parameters={"LENGTH1": 1.996, "K_PTS": 1},
                                                        num_points=5,
                                                        x=self.x[0:6], y=self.y[0:6])
