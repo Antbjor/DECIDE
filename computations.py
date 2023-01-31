@@ -172,7 +172,33 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_8(self):
-        return True
+        """
+        Return true if there exists a set of three data points, separated by A_PTS and B_PTS
+        consecutive intervening points, which cannot be contained within a circle of radius RADIUS1
+        """
+        a_pts = self.parameters["A_PTS"]
+        b_pts = self.parameters["B_PTS"]
+        radius = self.parameters["RADIUS1"]
+
+        if a_pts < 1:
+            raise ValueError("A_PTS must be >= 1")
+        if b_pts < 1:
+            raise ValueError("B_PTS must be >= 1")
+
+        # special case
+        if self.num_points < 5:
+            return False
+        # regular case
+        for i in range(self.num_points - (a_pts + b_pts + 2)):
+            center = [(self.x[i] + self.x[i + a_pts + 1] + self.x[i + a_pts + 2 + b_pts]) / 3,
+                      (self.y[i] + self.y[i + a_pts + 1] + self.y[i + a_pts + 2 + b_pts]) / 3]
+            dist_1 = math.dist([self.x[i], self.y[i]], center)
+            dist_2 = math.dist([self.x[i + a_pts + 1], self.y[i + a_pts + 1]], center)
+            dist_3 = math.dist([self.x[i + a_pts + 2 + b_pts], self.y[i + a_pts + 2 + b_pts]], center)
+            if dist_1 > radius or dist_2 > radius or dist_3 > radius:
+                return True
+        return False
+
 
     def condition_9(self):
         """
