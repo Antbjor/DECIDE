@@ -3,6 +3,7 @@ import numpy as np
 import decide.config as config
 
 
+
 class LaunchInterceptorConditions:
     """A class that calculates the Launch Interceptor Conditions (LICs)."""
 
@@ -265,7 +266,7 @@ class LaunchInterceptorConditions:
 
         e_pts = self.parameters["E_PTS"]
         f_pts = self.parameters["F_PTS"]
-        area_1 = self.parameters["AREA_1"]
+        area_1 = self.parameters["AREA1"]
 
         # special cases
         if self.num_points < 5:
@@ -381,8 +382,8 @@ class LaunchInterceptorConditions:
         """
         e_pts = self.parameters["E_PTS"]
         f_pts = self.parameters["F_PTS"]
-        area_1 = self.parameters["AREA_1"]
-        area_2 = self.parameters["AREA_2"]
+        area_1 = self.parameters["AREA1"]
+        area_2 = self.parameters["AREA2"]
         cond1 = False
         cond2 = False
 
