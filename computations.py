@@ -77,6 +77,10 @@ class LaunchInterceptorConditions:
             return False
 
     def condition_3(self):
+        """
+        Return true if here exists at least one set of three consecutive data points that are the vertices of a triangle
+        with area greater than AREA1.
+        """
         # special cases
         if self.num_points == 2:
             return False
@@ -122,6 +126,10 @@ class LaunchInterceptorConditions:
 
 
     def condition_5(self):
+        """
+        Return true if there exists at least one set of two consecutive data points, (X[i],Y[i]) and (X[j],Y[j]), such
+        that X[j] - X[i] <0. (where i = j-1)
+        """
         for i in range(self.num_points - 1):
             if self.x[i] > self.x[i + 1]:
                 return True
@@ -170,6 +178,11 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_7(self):
+        """
+        Return true if there exists at least one set of two data points separated by exactly K PTS consecutive
+        intervening points that are a distance greater than the length, LENGTH1, apart. The condition
+        is not met when NUMPOINTS <3
+        """
         k_pts = self.parameters["K_PTS"]
         # special cases
         if self.num_points < 3:
@@ -276,6 +289,11 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_11(self):
+        """
+        Return true if there exists at least one set of two data points, (X[i],Y[i]) and (X[j],Y[j]), separated by
+        exactly G PTS consecutive intervening points, such that X[j] - X[i] <0. (where i <j ) The
+        condition is not met when NUMPOINTS <3.
+        """
         g_pts = self.parameters["G_PTS"]
         # special cases
         if self.num_points < 3:
