@@ -275,7 +275,24 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_12(self):
-        return True
+        k_pts = self.parameters["K_PTS"]
+        length1 = self.parameters["LENGTH1"]
+        length2 = self.parameters["LENGTH2"]
+        if length2 < 0:
+            raise ValueError("LENGTH2 must not be less than 0")
+
+        # special case
+        if self.num_points < 3:
+            return False
+        # regular case
+        cond1, cond2 = False, False
+        for i in range(self.num_points - k_pts - 1):
+            if math.dist([self.x[i], self.y[i]],[self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length1:
+                cond1 = True
+        for i in range(self.num_points - k_pts - 1):
+            if math.dist([self.x[i], self.y[i]],[self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length2:
+                cond2 = True
+        return cond1 and cond2
 
     def condition_13(self):
         """
