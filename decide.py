@@ -44,8 +44,3 @@ def decide(parameters=config.parameters, num_points=config.num_points,
     fuv_calculator(puv, config.pum)
     config.launch = all(config.fuv)
     return "YES" if config.launch else "NO"
-
-def ghello():
-    print("hej")
-    config.fuv[0] = True
-    return False
