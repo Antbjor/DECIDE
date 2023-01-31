@@ -1,14 +1,14 @@
 import yaml
 
 try:
-    with open('settings.yml', encoding='utf-8') as fin:
+    with open('data.yml', encoding='utf-8') as fin:
         data = yaml.load(fin, Loader=yaml.FullLoader)
 except FileNotFoundError:
     try:
-        with open('../settings.yml', encoding='utf-8') as fin:
+        with open('../data.yml', encoding='utf-8') as fin:
             data = yaml.load(fin, Loader=yaml.FullLoader)
     except FileNotFoundError:
-        print("File 'settings.yml' not found! Please check your current working directory!")
+        print("File 'data.yml' not found! Please check your current working directory!")
         exit(1)
 
 # Constant

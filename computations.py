@@ -289,6 +289,11 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_12(self):
+        """
+        Return true if both conditions are true:
+        1. There exists two data points, separated by K_PTS consecutive points, which are further apart than LENGTH1.
+        2. There exists two data points, separated by K_PTS consecutive points, which are further apart than LENGTH2.
+        """
         k_pts = self.parameters["K_PTS"]
         length1 = self.parameters["LENGTH1"]
         length2 = self.parameters["LENGTH2"]
