@@ -29,7 +29,11 @@ def pum_calculator(cmv, lcm):
 
 def fuv_calculator(puv, pum):
     # TODO: calculate fuv and assign it to config.fuv
-    pass
+    for i in range(len(config.fuv)):
+        if not(puv[i]) or (all(pum[i][0:i]) and all(pum[i][i+1:])):
+            config.fuv[i] = True
+    return
+
 
 
 def decide(parameters=config.parameters, num_points=config.num_points,
