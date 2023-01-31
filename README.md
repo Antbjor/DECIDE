@@ -35,6 +35,14 @@ the tools and practices.
 #### License
 The project is available under the MIT license. See the COPYING file for more info.
 
+Note about the name of this file: We received feedback to change the name to LICENSE, but we
+believe it is fine to keep it as COPYING as many open source projects use this name. For example,
+[coreutils](https://git.savannah.gnu.org/cgit/coreutils.git/tree/COPYING),
+[bash](https://git.savannah.gnu.org/cgit/bash.git/tree/COPYING),
+[Git](https://github.com/git/git/blob/master/COPYING) and
+[curl](https://github.com/curl/curl/blob/master/COPYING)
+use the file name COPYING.
+
 
 #### Document how you fulfill P+ critieria
 We have read the criterias for getting a pass, and fulfilled every one of them.
