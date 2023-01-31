@@ -1,6 +1,6 @@
-import config
 import math
 import numpy as np
+import decide.config as config
 
 
 class LaunchInterceptorConditions:
@@ -124,7 +124,6 @@ class LaunchInterceptorConditions:
                 return True
         return False
 
-
     def condition_5(self):
         """
         Return true if there exists at least one set of two consecutive data points, (X[i],Y[i]) and (X[j],Y[j]), such
@@ -226,7 +225,6 @@ class LaunchInterceptorConditions:
                 return True
         return False
 
-
     def condition_9(self):
         """
         Return true if there exist one or more sets of three data points separated by C_PTS and D_PTS
@@ -324,10 +322,10 @@ class LaunchInterceptorConditions:
         # regular case
         cond1, cond2 = False, False
         for i in range(self.num_points - k_pts - 1):
-            if math.dist([self.x[i], self.y[i]],[self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length1:
+            if math.dist([self.x[i], self.y[i]], [self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length1:
                 cond1 = True
         for i in range(self.num_points - k_pts - 1):
-            if math.dist([self.x[i], self.y[i]],[self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length2:
+            if math.dist([self.x[i], self.y[i]], [self.x[i + k_pts + 1], self.y[i + k_pts + 1]]) > length2:
                 cond2 = True
         return cond1 and cond2
 

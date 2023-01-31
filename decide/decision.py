@@ -1,6 +1,5 @@
-import config
-import computations
-import numpy as np
+import decide.config as config
+import decide.computations as computations
 
 
 def cmv_calculator(parameters, num_points, x, y):
@@ -28,17 +27,16 @@ def pum_calculator(cmv, lcm):
 
 
 def fuv_calculator(puv, pum):
-    # TODO: calculate fuv and assign it to config.fuv
+    # Calculate fuv and assign it to config.fuv
     for i in range(len(config.fuv)):
-        if not(puv[i]) or (all(pum[i][0:i]) and all(pum[i][i+1:])):
+        if not (puv[i]) or (all(pum[i][0:i]) and all(pum[i][i + 1:])):
             config.fuv[i] = True
     return
 
 
-
 def decide(parameters=config.parameters, num_points=config.num_points,
            x=config.X, y=config.Y, lcm=config.lcm, puv=config.puv):
-    # TODO: decide whether to launch the nuclear bomb or not
+    # Decide whether to launch the nuclear bomb or not
     cmv_calculator(parameters, num_points, x, y)
     pum_calculator(config.cmv, lcm)
     fuv_calculator(puv, config.pum)

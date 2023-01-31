@@ -1,14 +1,19 @@
+import os
 import yaml
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 try:
-    with open('data.yml', encoding='utf-8') as fin:
+    with open(os.path.join(dir_path, 'data.yml'), encoding='utf-8') as fin:
         data = yaml.load(fin, Loader=yaml.FullLoader)
 except FileNotFoundError:
     try:
-        with open('../data.yml', encoding='utf-8') as fin:
+        with open('data.yml', encoding='utf-8') as fin:
             data = yaml.load(fin, Loader=yaml.FullLoader)
     except FileNotFoundError:
-        print("File 'data.yml' not found! Please check your current working directory!")
+        print("ERROR: File 'data.yml' not found! "
+              "Please ensure that 'data.yml' exists in the directory "
+              "'DECIDE/decide' or in your current working directory! ")
         exit(1)
 
 # Constant
@@ -41,7 +46,6 @@ fuv = [False for _ in range(15)]  # Final Unlocking Vector
 global fuv2
 
 global launch  # Decision: Launch or No Launch
-
 
 # Inputs to the DECIDE() function
 parameters = data["PARAMETERS"]
