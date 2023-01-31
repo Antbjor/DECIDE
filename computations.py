@@ -38,6 +38,13 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_2(self):
+        """
+        There exists at least one set of three consecutive data points which form an angle such that:
+        angle <(PI−EPSILON) or angle >(PI+EPSILON).
+        The second of the three consecutive points is always the vertex of the angle. If either the first
+        point or the last point (or both) coincides with the vertex, the angle is undefined and the LIC
+        is not satisfied by those three points.
+        """
         pi = config.PI
         epsilon = self.parameters["EPSILON"]
         if epsilon > pi or epsilon < 0:
@@ -121,6 +128,13 @@ class LaunchInterceptorConditions:
         return False
 
     def condition_6(self):
+        """
+        There exists at least one set of N PTS consecutive data points such that at least one of the
+        points lies a distance greater than DIST from the line joining the first and last of these N PTS
+        points. If the first and last points of these N PTS are identical, then the calculated distance
+        to compare with DIST will be the distance from the coincident point to all other points of
+        the N PTS consecutive points. The condition is not met when NUMPOINTS <3.
+        """
         num_consecutive = self.parameters["N_PTS"]
         min_dist = self.parameters["DIST"]
 
