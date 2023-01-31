@@ -41,7 +41,7 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
 
     def test_oscillation(self):
         """
-        test_lower_bound tests if the oscillating points will meet the requirement that the
+        test_oscillation tests if the oscillating points will meet the requirement that the
         distance of two K_PTS consecutive points is longer than LENGTH1 given small K_PTS
 
         expected_outcome: False
@@ -53,7 +53,7 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
 
     def test_impulse(self):
         """
-        test_lower_bound tests if the pulse points will meet the requirement that the distance
+        test_impulse tests if the pulse points will meet the requirement that the distance
         of two K_PTS consecutive points is longer than LENGTH1 given different K_PTS
 
         expected_outcome_1: False
@@ -75,8 +75,8 @@ class TestCondition7(unittest.TestCase):  # Test class for condition 7
 
     def test_simple_calculation(self):
         """
-        test_lower_bound tests if the different point sets will meet the requirement that the
-        distance of two K_PTS consecutive points is longer than LENGTH1 given different K_PTS
+        test_simple_calculation tests if the different point sets will meet the requirement that
+        the distance of two K_PTS consecutive points is longer than LENGTH1 given different K_PTS
 
         expected_outcome_1: True
         expected_outcome_2: False
