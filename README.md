@@ -18,5 +18,11 @@ Anton Björklund: Did CMV conditions 2, 6, 10 and 14.
 Wenqi Cao: Created the code base and a basic test file which all other tests files were modeled after.
 Did CMV conditions 3, 7 and 11.
 
+#### Way of working according to Essence
+Our team is currently in the "In place" state. All team members are using the agreed upon tools
+and formatting guidelines to do work. To get to the "Working well" state, the team needs to get more used
+to writing and performing tests with the tools we are using. In our current state we are still getting used to
+the tools and practices.
+
 #### License
 The project is available under the MIT license. See the COPYING file for more info.
