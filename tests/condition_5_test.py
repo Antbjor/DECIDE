@@ -1,10 +1,8 @@
-import config
 import unittest
-import computations
+import decide.computations as computations
 
 
 class TestCondition5(unittest.TestCase):
-
     x = [1, 1, 1, 8, 5, 2, 2, 6, 2, 7, 11, 3, 11]
     y = [1, 1, 1, 2, 0, 3, 1, 3, 9, 1, 3, 11, 3]
 
@@ -47,6 +45,7 @@ class TestCondition5(unittest.TestCase):
                                                        num_points=len(self.x),
                                                        x=self.x, y=self.y)
         self.assertTrue(lic.condition_5())
+
 
 if __name__ == '__main__':
     unittest.main()

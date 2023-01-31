@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-import computations
+import decide.computations as computations
 
 
 class TestCondition14(TestCase):

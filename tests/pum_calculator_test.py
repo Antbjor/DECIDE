@@ -1,6 +1,6 @@
-import config
-import decide
+import decide.config as config
 import unittest
+import decide
 
 decide.cmv_calculator(config.parameters, config.num_points, config.X, config.Y)
 decide.pum_calculator(config.cmv, config.lcm)

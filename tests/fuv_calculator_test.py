@@ -1,4 +1,4 @@
-import config
+import decide.config as config
 import unittest
 import decide
 

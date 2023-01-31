@@ -1,6 +1,6 @@
-import unittest
-import computations
 import math
+import unittest
+import decide.computations as computations
 
 
 class TestCondition8(unittest.TestCase):

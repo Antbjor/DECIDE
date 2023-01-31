@@ -1,5 +1,5 @@
 import unittest
-import computations
+import decide.computations as computations
 
 
 class TestCondition7(unittest.TestCase):  # Test class for condition 7

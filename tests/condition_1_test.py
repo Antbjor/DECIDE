@@ -1,7 +1,6 @@
-import config
-import unittest
-import computations
 import math
+import unittest
+import decide.computations as computations
 
 
 class TestCondition1(unittest.TestCase):
@@ -58,6 +57,7 @@ class TestCondition1(unittest.TestCase):
                                                        num_points=len(self.x),
                                                        x=self.x, y=self.y)
         self.assertTrue(lic.condition_1())
-    
+
+
 if __name__ == '__main__':  
     unittest.main()
