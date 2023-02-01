@@ -1,5 +1,5 @@
-import decide.config as config
-import decide.computations as computations
+from . import config
+from . import computations
 
 
 def cmv_calculator(parameters, num_points, x, y):

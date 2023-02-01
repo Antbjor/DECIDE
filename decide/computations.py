@@ -1,6 +1,6 @@
 import math
 import numpy as np
-import decide.config as config
+from . import config
 
 
 
