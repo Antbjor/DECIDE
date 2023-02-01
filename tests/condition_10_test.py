@@ -15,13 +15,13 @@ class TestCondition10(unittest.TestCase):
     def test_area_bigger(self):
         """
         Asserts that the function returns true when the area of the triangle created by
-        the points E_PTS and F_PTS apart are greater than the AREA_1 parameter.
+        the points E_PTS and F_PTS apart are greater than the AREA1 parameter.
         Tested here with a triangle with corners in (0,0), (3,3) and (0,3) and a
-        parameter-value of 4 for AREA_1
+        parameter-value of 4 for AREA1
         """
         lic = computations.LaunchInterceptorConditions(parameters={"E_PTS": 1,
                                                                    "F_PTS": 1,
-                                                                   "AREA_1": 4
+                                                                   "AREA1": 4
                                                                    },
                                                        num_points=5, x=self.x, y=self.y
                                                        )
@@ -30,13 +30,13 @@ class TestCondition10(unittest.TestCase):
     def test_area_smaller(self):
         """
         Asserts that the function returns false when the area of the triangle created by
-        the points E_PTS and F_PTS apart are smaller than the AREA_1 parameter.
+        the points E_PTS and F_PTS apart are smaller than the AREA1 parameter.
         Tested here with a triangle with corners in (0,0), (3,3) and (0,3) and a
-        parameter-value of 5 for AREA_1
+        parameter-value of 5 for AREA1
         """
         lic = computations.LaunchInterceptorConditions(parameters={"E_PTS": 1,
                                                                    "F_PTS": 1,
-                                                                   "AREA_1": 5
+                                                                   "AREA1": 5
                                                                    },
                                                        num_points=5, x=self.x, y=self.y
                                                        )
@@ -49,7 +49,7 @@ class TestCondition10(unittest.TestCase):
         """
         lic = computations.LaunchInterceptorConditions(parameters={"E_PTS": 1,
                                                                    "F_PTS": 1,
-                                                                   "AREA_1": 5
+                                                                   "AREA1": 5
                                                                    },
                                                        num_points=5, x=self.x_c, y=self.y_c
                                                        )
@@ -62,7 +62,7 @@ class TestCondition10(unittest.TestCase):
         """
         lic = computations.LaunchInterceptorConditions(parameters={"E_PTS": 1,
                                                                    "F_PTS": 1,
-                                                                   "AREA_1": 5
+                                                                   "AREA1": 5
                                                                    },
                                                        num_points=3, x=self.x, y=self.y
                                                        )
