@@ -25,6 +25,7 @@ class TestInputData(unittest.TestCase):
 
         :return: nothing
         """
+        print("test_data_points")
         self.assertTrue(config.num_points <= len(config.X), "ERROR: POINTS_X < NUMPOINTS.")
         self.assertTrue(config.num_points <= len(config.Y), "ERROR: POINTS_Y < NUMPOINTS.")
 
@@ -34,6 +35,7 @@ class TestInputData(unittest.TestCase):
 
         :return: nothing
         """
+        print("test_lcm")
         for i in range(15):
             self.assertEqual(config.lcm[i][i], "ANDD", "ERROR: lcm[i, i] must be ANDD.")
             for j in range(i):
@@ -48,8 +50,8 @@ class TestInputData(unittest.TestCase):
         """
         param = config.parameters
         self.assertTrue(0 <= param["AREA1"], "ERROR: AREA1 < 0 in settings.")
-        self.assertTrue(1 <= param["K_PTS"] <= param["NUMPOINTS"] - 2, "ERROR: invalid K_PTS in settings.")
-        self.assertTrue(1 <= param["G_PTS"] <= param["NUMPOINTS"] - 2, "ERROR: invalid G_PTS in settings.")
+        self.assertTrue(1 <= param["K_PTS"] <= config.num_points - 2, "ERROR: invalid K_PTS in settings.")
+        self.assertTrue(1 <= param["G_PTS"] <= config.num_points - 2, "ERROR: invalid G_PTS in settings.")
 
 
 if __name__ == '__main__':

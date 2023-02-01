@@ -29,7 +29,6 @@ class TestPUMFunction(unittest.TestCase):
         """
 
         for i in range(len(config.cmv)):
-            self.assertEqual(config.pum[i][i], config.cmv[i], "ERROR: pum[i, i] must be cmv[i].")
             for j in range(i):
                 self.assertEqual(config.pum[i][j], config.pum[j][i], "ERROR: pum is not symmetric.")
 

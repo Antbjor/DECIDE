@@ -27,45 +27,45 @@ POINTS_Y: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
 # Struct holding parameters for LIC.
 PARAMETERS:
   # Doubles in requirements
-  LENGTH1: 0.0  # Length in LIC 0, 7, 12
-  LENGTH2: 0.0  # Maximum length in LIC 12
-  RADIUS1: 0.0  # Radius in LIC 1, 8, 13
-  RADIUS2: 0.0  # Maximum length in LIC 13
-  EPSILON: 0.0  # Deviation from PI in LIC 2, 9
+  LENGTH1: 2.0  # Length in LIC 0, 7, 12
+  LENGTH2: 5.0  # Maximum length in LIC 12
+  RADIUS1: 1.0  # Radius in LIC 1, 8, 13
+  RADIUS2: 3.0  # Maximum length in LIC 13
+  EPSILON: 1.0  # Deviation from PI in LIC 2, 9
   AREA1: 0.0    # Area in LIC 3, 10, 14
-  AREA2: 0.0    # Maximum length in LIC 14
-  DIST: 0.0     # Distance in LIC 6
+  AREA2: 3.0    # Maximum length in LIC 14
+  DIST: 1.0     # Distance in LIC 6
 
   # Ints in requirements
-  Q_PTS: 0  # Number of consecutive points in LIC 4
-  QUADS: 0  # Number of quadrants in LIC 4
-  N_PTS: 0  # Number of consecutive points in LIC 6
-  K_PTS: 0  # Number of int points in LIC 7, 12
-  A_PTS: 0  # Number of int points in LIC 8, 13
-  B_PTS: 0  # Number of int points in LIC 8, 13
-  C_PTS: 0  # Number of int points in LIC 9
-  D_PTS: 0  # Number of int points in LIC 9
-  E_PTS: 0  # Number of int points in LIC 10, 14
-  F_PTS: 0  # Number of int points in LIC 10, 14
-  G_PTS: 0  # Number of int points in LIC 11
+  Q_PTS: 2  # Number of consecutive points in LIC 4
+  QUADS: 1  # Number of quadrants in LIC 4
+  N_PTS: 5  # Number of consecutive points in LIC 6
+  K_PTS: 1  # Number of int points in LIC 7, 12
+  A_PTS: 2  # Number of int points in LIC 8, 13
+  B_PTS: 1  # Number of int points in LIC 8, 13
+  C_PTS: 2  # Number of int points in LIC 9
+  D_PTS: 2  # Number of int points in LIC 9
+  E_PTS: 1  # Number of int points in LIC 10, 14
+  F_PTS: 1  # Number of int points in LIC 10, 14
+  G_PTS: 1  # Number of int points in LIC 11
 
 # Logical Connector Matrix.
 LCM:
-  - [ "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD", "NOTUSED" ]
-  - [ "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "ANDD" ]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
+  - [ "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD", "ANDD"]
 
 # Preliminary Unlocking Vector. (15*1)
-PUV: [ "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true", "true" ]
+PUV: [ "false", "true", "true", "false", "false", "false", "true", "true", "true", "true", "false", "true", "true", "true", "false"]
