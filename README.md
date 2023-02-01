@@ -6,6 +6,8 @@ Requirements:
 * numpy >= `1.16.4`
 * PyYAML >= `5.1.1`
 
+To run the program, run `python -m decide` from the main directory.
+
 ## Testing
 To run an individual test, run `python -m unittest tests.test_name` from the main directory, replacing
 `test_name` with the name of the test.
