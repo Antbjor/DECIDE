@@ -25,7 +25,6 @@ class TestInputData(unittest.TestCase):
 
         :return: nothing
         """
-        print("test_data_points")
         self.assertTrue(config.num_points <= len(config.X), "ERROR: POINTS_X < NUMPOINTS.")
         self.assertTrue(config.num_points <= len(config.Y), "ERROR: POINTS_Y < NUMPOINTS.")
 
@@ -35,7 +34,6 @@ class TestInputData(unittest.TestCase):
 
         :return: nothing
         """
-        print("test_lcm")
         for i in range(15):
             self.assertEqual(config.lcm[i][i], "ANDD", "ERROR: lcm[i, i] must be ANDD.")
             for j in range(i):
