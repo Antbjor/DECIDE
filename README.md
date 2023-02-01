@@ -6,6 +6,12 @@ Requirements:
 * numpy >= `1.16.4`
 * PyYAML >= `5.1.1`
 
+## Testing
+To run an individual test, run `python -m unittest tests.test_name` from the main directory, replacing
+`test_name` with the name of the test.
+
+To run all tests, run `python -m unittest discover -s tests -p '*_test.py'` from the main directory.
+
 ## Assignment 1: DECIDE
 *The first assignment in the project-course DD2480 at KTH.*
 
