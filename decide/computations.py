@@ -251,8 +251,9 @@ class LaunchInterceptorConditions:
             ba = first_point - vertex_point
             bc = last_point - vertex_point
             cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))
+            if cosine_angle > 1 or cosine_angle < -1:
+                return False
             angle = np.arccos(cosine_angle)
-
             if (angle < (math.pi - epsilon)) or (angle > (math.pi + epsilon)):
                 return True
         return False
